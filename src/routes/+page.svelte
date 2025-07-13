@@ -8,15 +8,22 @@
 	onMount(() => {
 		visible = true;
 
-		let i = 0;
-		const typeInterval = setInterval(() => {
-			if (i < fullText.length) {
-				typedText += fullText.charAt(i);
-				i++;
-			} else {
-				clearInterval(typeInterval);
-			}
-		}, 100);
+		function startTyping() {
+			let i = 0;
+			typedText = '';
+			const typeInterval = setInterval(() => {
+				if (i < fullText.length) {
+					typedText += fullText.charAt(i);
+					i++;
+				} else {
+					clearInterval(typeInterval);
+					// Restart animasi ketik setelah 2 detik
+					setTimeout(startTyping, 2000);
+				}
+			}, 100);
+		}
+
+		startTyping();
 	});
 </script>
 
@@ -46,7 +53,9 @@
 	<div class="relative z-10 container mx-auto px-4 text-center">
 		<div class="mx-auto max-w-4xl">
 			<h1
-				class="mb-6 text-5xl font-bold md:text-7xl {visible ? 'animate-fade-in-up' : 'opacity-0'}"
+				class="mb-6 text-5xl font-bold md:text-7xl"
+				class:animate-fade-in-up={visible}
+				class:opacity-0={!visible}
 			>
 				Halo, saya <span
 					class="bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent"
@@ -54,27 +63,31 @@
 				>
 			</h1>
 
-			<div
-				class="mb-8 h-8 text-xl text-gray-300 md:text-2xl {visible
-					? 'animate-fade-in-up animation-delay-500'
-					: 'opacity-0'}"
+			<!-- Efek ketik untuk profesi -->
+			<p
+				class="mb-8 h-8 text-xl font-semibold tracking-widest text-gray-300 uppercase md:text-2xl"
+				class:animate-fade-in-up={visible}
+				class:animation-delay-500={visible}
+				class:opacity-0={!visible}
 			>
 				{typedText}<span class="animate-pulse">|</span>
-			</div>
+			</p>
 
 			<p
-				class="mx-auto mb-12 max-w-2xl text-lg text-gray-400 {visible
-					? 'animate-fade-in-up animation-delay-1000'
-					: 'opacity-0'}"
+				class="mx-auto mb-12 max-w-2xl text-lg text-gray-400"
+				class:animate-fade-in-up={visible}
+				class:animation-delay-1000={visible}
+				class:opacity-0={!visible}
 			>
 				Saya mahasiswa Sistem Informasi yang suka mengembangkan aplikasi web dan mengambil gambar
 				dengan perspektif yang indah. Menggabungkan teknologi dan seni dalam karya digital.
 			</p>
 
 			<div
-				class="flex flex-col justify-center gap-4 sm:flex-row {visible
-					? 'animate-fade-in-up animation-delay-1500'
-					: 'opacity-0'}"
+				class="flex flex-col justify-center gap-4 sm:flex-row"
+				class:animate-fade-in-up={visible}
+				class:animation-delay-1500={visible}
+				class:opacity-0={!visible}
 			>
 				<a
 					href="/contact"
