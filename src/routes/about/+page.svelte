@@ -37,7 +37,7 @@
 							<img
 								src="/images/foto.JPG"
 								alt="Foto Muhammad Gifary"
-								class="h-80 w-80 rounded-2xl object-cover"
+								class="h-94 w-94 rounded-2xl object-cover"
 							/>
 						</div>
 					</div>
