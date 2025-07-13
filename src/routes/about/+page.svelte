@@ -32,12 +32,12 @@
 				<div
 					class={`flex justify-start ${visible ? 'animate-fade-in-up animation-delay-500' : 'opacity-0'}`}
 				>
-					<div class="h-96 w-96 rounded-2xl bg-gradient-to-br from-cyan-400 to-purple-600 p-1">
-						<div class="flex h-full w-full items-center justify-center rounded-2xl bg-gray-800">
+					<div class="h-96 w-96 rounded-full bg-gradient-to-br from-cyan-400 to-purple-600 p-1">
+						<div class="flex h-full w-full items-center justify-center rounded-full bg-gray-800">
 							<img
 								src="/images/foto.JPG"
 								alt="Foto Muhammad Gifary"
-								class="h-94 w-94 rounded-2xl object-cover"
+								class="h-94 w-94 rounded-full object-cover"
 							/>
 						</div>
 					</div>
